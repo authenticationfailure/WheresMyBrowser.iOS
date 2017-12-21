@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		CCDF50151FEA9A63005170F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF50141FEA9A63005170F5 /* AppDelegate.swift */; };
-		CCDF50171FEA9A63005170F5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF50161FEA9A63005170F5 /* FirstViewController.swift */; };
-		CCDF50191FEA9A63005170F5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF50181FEA9A63005170F5 /* SecondViewController.swift */; };
+		CCDF50171FEA9A63005170F5 /* UIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF50161FEA9A63005170F5 /* UIWebViewController.swift */; };
+		CCDF50191FEA9A63005170F5 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF50181FEA9A63005170F5 /* WKWebViewController.swift */; };
 		CCDF501C1FEA9A63005170F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCDF501A1FEA9A63005170F5 /* Main.storyboard */; };
 		CCDF501E1FEA9A63005170F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCDF501D1FEA9A63005170F5 /* Assets.xcassets */; };
 		CCDF50211FEA9A63005170F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCDF501F1FEA9A63005170F5 /* LaunchScreen.storyboard */; };
 		CCDF502C1FEA9A63005170F5 /* WheresMyBrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF502B1FEA9A63005170F5 /* WheresMyBrowserTests.swift */; };
+		CCDF50371FEAA91E005170F5 /* DocumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF50361FEAA91E005170F5 /* DocumentationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,8 +30,8 @@
 /* Begin PBXFileReference section */
 		CCDF50111FEA9A63005170F5 /* WheresMyBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WheresMyBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCDF50141FEA9A63005170F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CCDF50161FEA9A63005170F5 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		CCDF50181FEA9A63005170F5 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		CCDF50161FEA9A63005170F5 /* UIWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWebViewController.swift; sourceTree = "<group>"; };
+		CCDF50181FEA9A63005170F5 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		CCDF501B1FEA9A63005170F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CCDF501D1FEA9A63005170F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCDF50201FEA9A63005170F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +39,7 @@
 		CCDF50271FEA9A63005170F5 /* WheresMyBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WheresMyBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCDF502B1FEA9A63005170F5 /* WheresMyBrowserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheresMyBrowserTests.swift; sourceTree = "<group>"; };
 		CCDF502D1FEA9A63005170F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCDF50361FEAA91E005170F5 /* DocumentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +82,13 @@
 			isa = PBXGroup;
 			children = (
 				CCDF50141FEA9A63005170F5 /* AppDelegate.swift */,
-				CCDF50161FEA9A63005170F5 /* FirstViewController.swift */,
-				CCDF50181FEA9A63005170F5 /* SecondViewController.swift */,
+				CCDF50161FEA9A63005170F5 /* UIWebViewController.swift */,
+				CCDF50181FEA9A63005170F5 /* WKWebViewController.swift */,
 				CCDF501A1FEA9A63005170F5 /* Main.storyboard */,
 				CCDF501D1FEA9A63005170F5 /* Assets.xcassets */,
 				CCDF501F1FEA9A63005170F5 /* LaunchScreen.storyboard */,
 				CCDF50221FEA9A63005170F5 /* Info.plist */,
+				CCDF50361FEAA91E005170F5 /* DocumentationViewController.swift */,
 			);
 			path = WheresMyBrowser;
 			sourceTree = "<group>";
@@ -202,9 +205,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCDF50191FEA9A63005170F5 /* SecondViewController.swift in Sources */,
+				CCDF50191FEA9A63005170F5 /* WKWebViewController.swift in Sources */,
 				CCDF50151FEA9A63005170F5 /* AppDelegate.swift in Sources */,
-				CCDF50171FEA9A63005170F5 /* FirstViewController.swift in Sources */,
+				CCDF50171FEA9A63005170F5 /* UIWebViewController.swift in Sources */,
+				CCDF50371FEAA91E005170F5 /* DocumentationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +363,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WheresMyBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.authenticationfailure.WheresMyBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -373,6 +378,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WheresMyBrowser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.authenticationfailure.WheresMyBrowser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
