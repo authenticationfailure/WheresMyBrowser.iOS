@@ -21,6 +21,7 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
     
     @IBOutlet weak var wkWebViewPlaceholder: UIView!
     
+    @IBOutlet weak var scenarioButton: UIBarButtonItem!
     
     override func loadView() {
         super.loadView()
@@ -96,6 +97,38 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
             }
         }
     }
+    
+    func showScenarioSelection() {
+        
+        let scenarioActionSheet = UIAlertController(title: "Select a scenario", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        let scenario1Action = UIAlertAction(title: "Scenario 1", style: UIAlertActionStyle.default) { (action) in
+            print("Scenario 1 selected")
+        }
+        
+        let scenario2Action = UIAlertAction(title: "Scenario 2", style: UIAlertActionStyle.default) { (action) in
+            print("Scenario 2 selected")
+        }
+        
+        let scenario3Action = UIAlertAction(title: "Scenario 3", style: UIAlertActionStyle.default) { (action) in
+            print("Scenario 3 selected")
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            print("Cancel scenario selection")
+        })
+        
+        scenarioActionSheet.addAction(scenario1Action)
+        scenarioActionSheet.addAction(scenario2Action)
+        scenarioActionSheet.addAction(scenario3Action)
+        scenarioActionSheet.addAction(cancelAction)
+        
+        if let popoverController = scenarioActionSheet.popoverPresentationController {
+            popoverController.barButtonItem = scenarioButton
+        }
+        
+        self.present(scenarioActionSheet, animated: true, completion: nil)
+    }
 
     @IBAction func goToUrl(_ sender: Any) {
         loadUrlFromBar()
@@ -104,5 +137,13 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
     @IBAction func urlBarEditingGo(_ sender: UITextField) {
         loadUrlFromBar()
     }
+
+    @IBAction func selectScenarioButtonPressed(_ sender: UIBarButtonItem) {
+         showScenarioSelection()
+    }
+    
+    @IBAction func loadContentButtonPressed(_ sender: UIBarButtonItem) {
+    }
+    
 }
 

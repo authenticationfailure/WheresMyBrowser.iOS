@@ -14,6 +14,7 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var uiWebView: UIWebView!
     @IBOutlet weak var progressBar: UIProgressView!
 
+    @IBOutlet weak var scenarioButton: UIBarButtonItem!
     
     var progressBarTimer = Timer();
     var progressBarPageLoaded = false;
@@ -52,6 +53,16 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
     @IBAction func urlBarEditingGo(_ sender: UITextField) {
                 loadUrlFromBar()
     }
+    
+    @IBAction func loadContentButtonPressed(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    @IBAction func selectScenarioButtonPressed(_ sender: UIBarButtonItem) {
+        showScenarioSelection()
+    }
+    
+    @IBOutlet weak var loadContentButtonPressed: UIBarButtonItem!
     func webViewDidStartLoad(_ webView: UIWebView) {
         // Fake progress bar
         progressBar.progress = 0;
@@ -80,6 +91,38 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
                 progressBar.progress = 0.95;
             }
         }
+    }
+    
+    func showScenarioSelection() {
+        
+        let scenarioActionSheet = UIAlertController(title: "Select a scenario", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        let scenario1Action = UIAlertAction(title: "Scenario 1", style: UIAlertActionStyle.default) { (action) in
+            print("Scenario 1 selected")
+        }
+        
+        let scenario2Action = UIAlertAction(title: "Scenario 2", style: UIAlertActionStyle.default) { (action) in
+            print("Scenario 2 selected")
+        }
+        
+        let scenario3Action = UIAlertAction(title: "Scenario 3", style: UIAlertActionStyle.default) { (action) in
+            print("Scenario 3 selected")
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            print("Cancel scenario selection")
+        })
+        
+        scenarioActionSheet.addAction(scenario1Action)
+        scenarioActionSheet.addAction(scenario2Action)
+        scenarioActionSheet.addAction(scenario3Action)
+        scenarioActionSheet.addAction(cancelAction)
+        
+        if let popoverController = scenarioActionSheet.popoverPresentationController {
+            popoverController.barButtonItem = scenarioButton
+        }
+        
+        self.present(scenarioActionSheet, animated: true, completion: nil)
     }
 }
 

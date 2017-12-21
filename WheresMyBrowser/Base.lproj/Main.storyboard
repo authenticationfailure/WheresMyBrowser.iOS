@@ -68,8 +68,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="UIWebView" id="xtR-gO-ojz">
                         <leftBarButtonItems>
-                            <barButtonItem title="Scenarios" image="icons8-bulleted-list" id="Ibk-qN-dyx" userLabel="Scenarios"/>
-                            <barButtonItem systemItem="add" id="oRA-ug-dHH"/>
+                            <barButtonItem title="Scenarios" image="icons8-bulleted-list" id="Ibk-qN-dyx" userLabel="Scenarios">
+                                <connections>
+                                    <action selector="selectScenarioButtonPressed:" destination="9pv-A4-QxB" id="8bK-Yw-xce"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="oRA-ug-dHH">
+                                <connections>
+                                    <action selector="loadContentButtonPressed:" destination="9pv-A4-QxB" id="IoF-gU-EzM"/>
+                                </connections>
+                            </barButtonItem>
                         </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="icons8-settings" id="WuD-48-bXZ" userLabel="Settings">
                             <connections>
@@ -79,6 +87,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="progressBar" destination="pTH-Lw-L5I" id="Fdc-C7-ubn"/>
+                        <outlet property="scenarioButton" destination="Ibk-qN-dyx" id="GLJ-3d-tMT"/>
                         <outlet property="uiWebView" destination="LRv-iB-TAU" id="YWa-i6-pbH"/>
                         <outlet property="urlBar" destination="pwQ-Xp-d4L" id="6cb-1t-vcI"/>
                     </connections>
@@ -202,8 +211,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="WKWebView" id="t8C-3s-Spr">
                         <leftBarButtonItems>
-                            <barButtonItem title="Scenarios" image="icons8-bulleted-list" id="IZF-uQ-Td0" userLabel="Scenarios"/>
-                            <barButtonItem systemItem="add" id="mgS-ip-R0I"/>
+                            <barButtonItem title="Scenarios" image="icons8-bulleted-list" id="IZF-uQ-Td0" userLabel="Scenarios">
+                                <connections>
+                                    <action selector="selectScenarioButtonPressed:" destination="8rJ-Kc-sve" id="iYG-0W-y9Q"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="mgS-ip-R0I">
+                                <connections>
+                                    <action selector="loadContentButtonPressed:" destination="8rJ-Kc-sve" id="0lr-Cc-SAJ"/>
+                                </connections>
+                            </barButtonItem>
                         </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Settings" image="icons8-settings" id="d2f-oo-lyE" userLabel="Settings">
                             <connections>
@@ -213,6 +230,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="progressBar" destination="96p-LD-kkh" id="Yf5-iS-oRv"/>
+                        <outlet property="scenarioButton" destination="IZF-uQ-Td0" id="Cru-Ar-Urt"/>
                         <outlet property="urlBar" destination="Y1q-TT-s9b" id="cSQ-WW-FuO"/>
                         <outlet property="wkWebViewPlaceholder" destination="rnU-su-L07" id="bgv-BA-ajn"/>
                     </connections>
