@@ -105,6 +105,7 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
         
         let scenario1Action = UIAlertAction(title: "Scenario 1", style: UIAlertActionStyle.default) { (action) in
             print("Scenario 1 selected")
+            self.loadScenario1()
         }
         
         let scenario2Action = UIAlertAction(title: "Scenario 2", style: UIAlertActionStyle.default) { (action) in
@@ -129,6 +130,12 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
         }
         
         self.present(scenarioActionSheet, animated: true, completion: nil)
+    }
+    
+    func loadScenario1() {
+        var scenario1Url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        scenario1Url = scenario1Url.appendingPathComponent("scenario1.html")
+        uiWebView.loadRequest(URLRequest(url: scenario1Url))
     }
 }
 

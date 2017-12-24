@@ -15,6 +15,7 @@
 		CCDF50211FEA9A63005170F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCDF501F1FEA9A63005170F5 /* LaunchScreen.storyboard */; };
 		CCDF502C1FEA9A63005170F5 /* WheresMyBrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF502B1FEA9A63005170F5 /* WheresMyBrowserTests.swift */; };
 		CCDF50371FEAA91E005170F5 /* DocumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF50361FEAA91E005170F5 /* DocumentationViewController.swift */; };
+		CCDF503F1FEE6435005170F5 /* web in Resources */ = {isa = PBXBuildFile; fileRef = CCDF503E1FEE6435005170F5 /* web */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		CCDF502B1FEA9A63005170F5 /* WheresMyBrowserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheresMyBrowserTests.swift; sourceTree = "<group>"; };
 		CCDF502D1FEA9A63005170F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCDF50361FEAA91E005170F5 /* DocumentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationViewController.swift; sourceTree = "<group>"; };
+		CCDF503E1FEE6435005170F5 /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		CCDF50131FEA9A63005170F5 /* WheresMyBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				CCDF503E1FEE6435005170F5 /* web */,
 				CCDF50141FEA9A63005170F5 /* AppDelegate.swift */,
 				CCDF50161FEA9A63005170F5 /* UIWebViewController.swift */,
 				CCDF50181FEA9A63005170F5 /* WKWebViewController.swift */,
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCDF50211FEA9A63005170F5 /* LaunchScreen.storyboard in Resources */,
+				CCDF503F1FEE6435005170F5 /* web in Resources */,
 				CCDF501E1FEA9A63005170F5 /* Assets.xcassets in Resources */,
 				CCDF501C1FEA9A63005170F5 /* Main.storyboard in Resources */,
 			);

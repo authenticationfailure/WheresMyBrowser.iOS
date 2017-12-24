@@ -16,6 +16,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Setup of data
+        
+        /*
+         This will store data in the user's default plist file located in the
+         application's sandbox at:
+         Library/Preferences/com.authenticationfailure.WheresMyBrowser.plist
+        */
+        let userDefaults = UserDefaults.standard
+        
+        if !userDefaults.bool(forKey: "isFirstRun") {
+            userDefaults.set(true, forKey: "isFirstRun")
+            userDefaults.set("The secret is: IDXTT2Y3S", forKey: "Secret")
+        }
+        
+        // Copy file for scenario1
+        let scenario1HtmlOriginPath = Bundle.main.url(forResource: "web/scenario1.html", withExtension: nil)
+        let documentDirectoryPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let scenario1HtmlDestinationPath = documentDirectoryPath.appendingPathComponent("scenario1.html")
+        do {
+            let scenario1Html = try String(contentsOf: scenario1HtmlOriginPath!, encoding: .utf8)
+            try scenario1Html.write(to: scenario1HtmlDestinationPath, atomically: false, encoding: .utf8)
+        } catch {
+            
+        }
+        
         return true
     }
 

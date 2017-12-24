@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+    <script src="http://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+</head>
+<html>
+    <body>
+        <h1>Scenario 1</h1>
+        <h2>Resource loaded from file:// Url</h2>
+        <h3>Description</h3>
+        <p>In this scenario the page is loaded from a file:// URL;
+        however some content is loaded insecurely from the Internet over http.</p>
+        
+        <h3>Tasks</h3>
+        <ol>
+            <li>Can you exfiltrate the secret from the user's defaults plist file using a man-in-the middle attack?</li>
+        </ol>
+        <hr/>
+        <h3>Page Content</h3>
+        This data is fetched from two remote APIs.
+        
+        <p>The last comment is:</p>
+        <p id="output_comment" style="background-color: #E0E0E0"></p>
+        
+        <p>Google stock price is:</p>
+        <p id="output_stock" style="background-color: #E0E0E0"></p>
+        
+        <script>
+            var xhttp_comment = new XMLHttpRequest();
+            
+            xhttp_comment.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        jsonObject=JSON.parse(this.responseText);
+                        document.getElementById("output_comment").innerHTML=jsonObject[4]['body'];
+                    } else {
+                        document.getElementById("output_comment").innerHTML="<div style='color:red'>Error: could not load remote data</div>";
+                    }
+                }
+            }
+            // The comments API implements a CORS policy
+            // and returns the header Access-Control-Allow-Origin: file://
+            // The WebView's setAllowFileAccessFromFileURLs(true) is NOT required to access the resource
+            xhttp_comment.open("GET", "http://jsonplaceholder.typicode.com/posts/1/comments/", true);
+            xhttp_comment.send();
+        </script>
+        
+        <script>
+            var xhttp_no_cors = new XMLHttpRequest();
+            
+            xhttp_no_cors.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        jsonObject=JSON.parse(this.responseText.replace(/\/\/\ \[/,"["));
+                        console.log(jsonObject[0].f_reuters_url);
+                        document.getElementById("output_stock").innerHTML=jsonObject[0].l+" USD";
+                    } else {
+                        document.getElementById("output_stock").innerHTML= "<div style='color:red'>Error: could not load remote data</div>";
+                    }
+                }
+            }
+          
+            // The finance API does not set a CORS policy
+            // The WebView's setAllowFileAccessFromFileURLs(true) is required to access the resource
+            xhttp_no_cors.open("GET", "http://finance.google.com/finance?q=NASDAQ:GOOGL&output=json", true);
+            xhttp_no_cors.send();
+        </script>
+        
+        <hr/>
+        
+        <h3>Exploitation Helper</h3>
+        
+        <form id="payload_form" onsubmit="event.preventDefault(); eval(document.getElementById('payload').value)" action="#">
+            <label for="payload">You can simulate the attack by writing a payload in the text area below and pressing 'Evaluate Payload':</label><br>
+            <textarea id="payload" rows=6 style="width:100%">// Replace last comment and stock price
+                document.getElementById("output_comment").innerHTML="My new comment";
+                document.getElementById("output_stock").innerHTML="XXXXX USD";
+            </textarea>
+            <button id="run_payload" type="submit">Evaluate Payload</button>
+        </form>
+        
+    </body>
+</html>
