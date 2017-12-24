@@ -76,6 +76,12 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
         urlBar.text = uiWebView.request?.url?.absoluteString;
     }
     
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        showOkAlert(title: "Resource failed to load", message: error.localizedDescription)
+        progressBarPageLoaded = true;
+        urlBar.text = uiWebView.request?.url?.absoluteString;
+    }
+    
     // Fake progress bar simulation
     @objc func progressBarTimerCallback() {
         if progressBarPageLoaded {
