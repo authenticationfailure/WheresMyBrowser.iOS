@@ -93,6 +93,23 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
         urlBar.resignFirstResponder();
     }
     
+    // Prepare for LoadContentViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is LoadContentViewController {
+            let destination = segue.destination as! LoadContentViewController
+            destination.parentWebView = self
+        }
+    }
+    
+    // Load data from LoadContentViewController into the Web View
+    @IBAction func unwindToWKWebView(segue: UIStoryboardSegue) {
+        let loadContentViewController = segue.source as! LoadContentViewController
+        let htmlData = loadContentViewController.htmlData
+        let htmlOrigin = loadContentViewController.htmlOrigin
+        
+        wkWebView.loadHTMLString(htmlData, baseURL: URL(string: htmlOrigin))
+    }
+    
     // Fake progress bar simulation
     @objc func progressBarTimerCallback() {
         if progressBarPageLoaded {

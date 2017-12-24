@@ -18,6 +18,7 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
     
     var progressBarTimer = Timer();
     var progressBarPageLoaded = false;
+    var htmlData: String?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,23 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
     
     @IBAction func selectScenarioButtonPressed(_ sender: UIBarButtonItem) {
         showScenarioSelection()
+    }
+    
+    // Prepare for LoadContentViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is LoadContentViewController {
+            let destination = segue.destination as! LoadContentViewController
+            destination.parentWebView = self
+        }
+    }
+    
+    // Load data from LoadContentViewController into the Web View
+    @IBAction func unwindToUIWebView(segue: UIStoryboardSegue) {
+        let loadContentViewController = segue.source as! LoadContentViewController
+        let htmlData = loadContentViewController.htmlData
+        let htmlOrigin = loadContentViewController.htmlOrigin
+        
+        uiWebView.loadHTMLString(htmlData, baseURL: URL(string: htmlOrigin))
     }
     
     @IBOutlet weak var loadContentButtonPressed: UIBarButtonItem!

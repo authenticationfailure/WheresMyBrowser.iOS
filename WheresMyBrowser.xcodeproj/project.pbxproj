@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CCD212FF1FEFE348000B0D87 /* LoadContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD212FE1FEFE348000B0D87 /* LoadContentViewController.swift */; };
 		CCDF50151FEA9A63005170F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF50141FEA9A63005170F5 /* AppDelegate.swift */; };
 		CCDF50171FEA9A63005170F5 /* UIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF50161FEA9A63005170F5 /* UIWebViewController.swift */; };
 		CCDF50191FEA9A63005170F5 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF50181FEA9A63005170F5 /* WKWebViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CCD212FE1FEFE348000B0D87 /* LoadContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadContentViewController.swift; sourceTree = "<group>"; };
 		CCDF50111FEA9A63005170F5 /* WheresMyBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WheresMyBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCDF50141FEA9A63005170F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCDF50161FEA9A63005170F5 /* UIWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWebViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				CCDF501F1FEA9A63005170F5 /* LaunchScreen.storyboard */,
 				CCDF50221FEA9A63005170F5 /* Info.plist */,
 				CCDF50361FEAA91E005170F5 /* DocumentationViewController.swift */,
+				CCD212FE1FEFE348000B0D87 /* LoadContentViewController.swift */,
 			);
 			path = WheresMyBrowser;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				CCDF50151FEA9A63005170F5 /* AppDelegate.swift in Sources */,
 				CCDF50171FEA9A63005170F5 /* UIWebViewController.swift in Sources */,
 				CCDF50371FEAA91E005170F5 /* DocumentationViewController.swift in Sources */,
+				CCD212FF1FEFE348000B0D87 /* LoadContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
