@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>UIWebView Scenario 4</h1>
+        <h2>External website loaded inside WebView.</h2>
+        <h3>Description</h3>
+        <p>This is a variation of scenario 3.
+        The UiWebView still exposes native methods; however it is not possible to inject JavaScript directly into the loaded HTML page.</p>
+        <p>Perhaps there's another way to load untrusted content into the WebView ;)</p>
+        <h3>Tasks</h3>
+        <ol>
+            <li>Can you steal the secret exposed via native functionality using a man-in-the middle attack?</li>
+        </ol>
+        <hr />
+        <h3>Page Content</h3>
+        <p>Google stock price is:</p>
+        <p id="output_stock" style="background-color: #E0E0E0"></p>
+        
+        <p><a id="external_link" href="#">Click here for more info.</a></p>
+        
+        <script>
+            function updateLink(href) {
+                externalLink = document.getElementById('external_link');
+                console.log(href);
+                
+                if (href.search("http://")==0 || href.search("https://")==0) {
+                    safe_href = href;
+                } else {
+                    safe_href = "#";
+                }
+                externalLink.setAttribute("href", safe_href);
+            }
+        
+            function updateLinkFromPayload() {
+                payload = document.getElementById('payload');
+                updateLink(payload.value);
+            }
+        
+            var xhttp_no_cors = new XMLHttpRequest();
+            
+            xhttp_no_cors.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        jsonObject=JSON.parse(this.responseText.replace(/\/\/\ \[/,"["));
+                        console.log(jsonObject[0].f_reuters_url);
+                        document.getElementById("output_stock").innerHTML=jsonObject[0].l+" USD";
+                        updateLink(jsonObject[0].f_reuters_url);
+                    } else {
+                         document.getElementById("output_stock").innerHTML=
+                         "<div style='color:red'>Error: is 'Universal access from file URL' enabled?</div>";
+                    }
+                }
+            }
+                         
+            // The finance API does not set a CORS policy
+            xhttp_no_cors.open("GET", "http://finance.google.com/finance?q=NASDAQ:GOOGL&output=json", true);
+            xhttp_no_cors.send();
+        </script>
+        
+        <hr />
+        <h3>Exploitation Helper</h3>
+        <form id="payload_form" onsubmit="event.preventDefault(); updateLinkFromPayload()" action="#">
+            <label for="payload">You can simulate the attack by writing a payload below and pressing 'Inject Payload':</label><br />
+            <textarea id="payload" rows=2 style="width:100%">http://www.example.com</textarea>
+            <button id="run_payload" type="submit">Inject Payload</button>
+        </form>
+        
+    </body>
+</html>

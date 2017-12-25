@@ -4,15 +4,16 @@
 </head>
 <html>
     <body>
-        <h1>UIWebView Scenario 1</h1>
-        <h2>Resource loaded from file:// Url</h2>
+        <h1>UIWebView Scenario 2</h1>
+        <h2>Resource loaded via loadHTMLstring</h2>
         <h3>Description</h3>
-        <p>In this scenario the page is loaded from a file:// URL;
-        however some content is loaded insecurely from the Internet over http.</p>
+        <p>In this scenario the page content is loaded into the UIWebView from a string using the loadHTMLString method and the baseURL parameter is not explicitely specified, but it is set to 'nil'.
+        The page content loads resources insecurely from the Internet over http.</p>
         
         <h3>Tasks</h3>
         <ol>
-            <li>Can you exfiltrate the secret from the user's defaults plist file using a man-in-the middle attack?</li>
+            <li>Simlilary to "UIWebView Scenario 1", Can you exfiltrate the secret from the user's defaults plist file using a man-in-the middle attack?</li>
+            <li>What does it make it more difficult to exploit than in "UIWebView Scenario 1"?</li>
         </ol>
         <hr/>
         <h3>Page Content</h3>

@@ -100,6 +100,50 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
         urlBar.text = uiWebView.request?.url?.absoluteString;
     }
     
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        
+        let requestUrl = request.url;
+        
+        // Handle request with scheme javascriptbridge as internal function calls
+        // For example to invoke the function getSecret from JavaScript use the URL:
+        // javascriptbridge://getSecret/
+        // the result will be retrned to the JavaScript page by calling the function
+        // javascriptBridgeCallBack("getSecret", secret)
+    
+        if requestUrl != nil &&
+            requestUrl!.scheme == "javascriptbridge" {
+            print("Invoked javascriptbridge: " + requestUrl!.absoluteString)
+            var javaScriptCallBack = ""
+            switch requestUrl!.host {
+            case "addNumbers"?:
+                let arg1 = Double(requestUrl!.pathComponents[1])
+                let arg2 = Double(requestUrl!.pathComponents[2])
+
+                if arg1 != nil && arg2 != nil {
+                    let result = arg1! + arg2!;
+                    javaScriptCallBack = "javascriptBridgeCallBack('addNumbers','\(result)')"
+                } else {
+                    javaScriptCallBack = "javascriptBridgeCallBack('addNumbers','Error: invalid numbers')"
+                }
+                break
+            case "getSecret"?:
+                let secret = "EtWsaCCFS432"
+                let javaScriptCallBack = "javascriptBridgeCallBack('getSecret','\(secret)')"
+                uiWebView.stringByEvaluatingJavaScript(from: javaScriptCallBack)
+                break
+                
+            default:
+                return true
+            }
+            
+            uiWebView.stringByEvaluatingJavaScript(from: javaScriptCallBack)
+            // prevent webview from loading the URL
+            return false
+        }
+        return true
+    }
+
+    
     // Fake progress bar simulation
     @objc func progressBarTimerCallback() {
         if progressBarPageLoaded {
@@ -122,16 +166,17 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
         let scenarioActionSheet = UIAlertController(title: "Select a scenario", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         
         let scenario1Action = UIAlertAction(title: "Scenario 1", style: UIAlertActionStyle.default) { (action) in
-            print("Scenario 1 selected")
             self.loadScenario1()
         }
         
         let scenario2Action = UIAlertAction(title: "Scenario 2", style: UIAlertActionStyle.default) { (action) in
-            print("Scenario 2 selected")
+            self.loadScenario2()
         }
         
-        let scenario3Action = UIAlertAction(title: "Scenario 3", style: UIAlertActionStyle.default) { (action) in
-            print("Scenario 3 selected")
+        let scenario3Action = UIAlertAction(title: "Scenario 3", style: UIAlertActionStyle.default) { (action) in            self.loadScenario3()
+        }
+        
+        let scenario4Action = UIAlertAction(title: "Scenario 4", style: UIAlertActionStyle.default) { (action) in            self.loadScenario4()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
@@ -141,6 +186,7 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
         scenarioActionSheet.addAction(scenario1Action)
         scenarioActionSheet.addAction(scenario2Action)
         scenarioActionSheet.addAction(scenario3Action)
+        scenarioActionSheet.addAction(scenario4Action)
         scenarioActionSheet.addAction(cancelAction)
         
         if let popoverController = scenarioActionSheet.popoverPresentationController {
@@ -154,6 +200,27 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
         var scenario1Url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         scenario1Url = scenario1Url.appendingPathComponent("scenario1.html")
         uiWebView.loadRequest(URLRequest(url: scenario1Url))
+    }
+    
+    func loadScenario2() {
+        let scenario2HtmlPath = Bundle.main.url(forResource: "web/scenario2.html", withExtension: nil)
+        do {
+            let scenario2Html = try String(contentsOf: scenario2HtmlPath!, encoding: .utf8)
+            uiWebView.loadHTMLString(scenario2Html, baseURL: nil)
+        } catch {}
+    }
+    
+    func loadScenario3() {
+        let scenario3HtmlPath = Bundle.main.url(forResource: "web/scenario3.html", withExtension: nil)
+        do {
+            let scenario3Html = try String(contentsOf: scenario3HtmlPath!, encoding: .utf8)
+            uiWebView.loadHTMLString(scenario3Html, baseURL: URL(string: "about:blank"))
+        } catch {}
+    }
+    
+    func loadScenario4() {
+        let scenario4Url = Bundle.main.url(forResource: "web/scenario4.html", withExtension: nil)
+        uiWebView.loadRequest(URLRequest(url: scenario4Url!))
     }
 }
 
