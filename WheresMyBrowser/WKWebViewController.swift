@@ -79,6 +79,14 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
         urlBar.text = wkWebView.url?.absoluteString;
     }
     
+    func webView(_ webView: WKWebView,
+                 didFailProvisionalNavigation navigation: WKNavigation!,
+                 withError error: Error) {
+        showOkAlert(title: "Resource failed to load", message: error.localizedDescription)
+        progressBarPageLoaded = true;
+        urlBar.text = wkWebView.url?.absoluteString;
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
