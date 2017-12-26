@@ -15,7 +15,8 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
     @IBOutlet weak var progressBar: UIProgressView!
     
     var wkWebView: WKWebView!
-    var wkWebViewConfiguration: WKWebViewConfiguration!
+    var wkWebViewPreferencesManager: WKWebViewPreferencesManager!
+    
     var progressBarTimer = Timer();
     var progressBarPageLoaded = false;
     
@@ -25,6 +26,8 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
     
     override func loadView() {
         super.loadView()
+        
+        let wkWebViewConfiguration: WKWebViewConfiguration!
         wkWebViewConfiguration = WKWebViewConfiguration()
         
         // WKWebViews placed using the interface builder return an error if
@@ -45,6 +48,8 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
         wkWebView.bottomAnchor.constraint(equalTo: wkWebViewPlaceholder.bottomAnchor).isActive = true
         wkWebView.leadingAnchor.constraint(equalTo: wkWebViewPlaceholder.leadingAnchor).isActive = true
         wkWebView.trailingAnchor.constraint(equalTo: wkWebViewPlaceholder.trailingAnchor).isActive = true
+        
+        wkWebViewPreferencesManager = WKWebViewPreferencesManager(wkWebView: wkWebView);
         
     }
     
@@ -141,7 +146,7 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
         }
         
         let scenario3Action = UIAlertAction(title: "Scenario 3", style: UIAlertActionStyle.default) { (action) in
-            print("Scenario 3 selected")
+            self.loadScenario3()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
@@ -161,21 +166,34 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
     }
     
     func loadScenario1() {
+        self.wkWebViewPreferencesManager.enableJavaScript(true)
+        self.wkWebViewPreferencesManager.enableJavaScriptBridge(false)
+        self.wkWebViewPreferencesManager.enableUndocumentedAllowAccessFromFileURLs(false)
+        
         var scenario1Url = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)[0]
         scenario1Url = scenario1Url.appendingPathComponent("WKWebView/scenario1.html")
-        
-        // This is an undocumented workaround to allow file access from file origin
-        //wkWebView.configuration.preferences.setValue("Yes", forKey: "allowFileAccessFromFileURLs")
-
         wkWebView.loadFileURL(scenario1Url, allowingReadAccessTo: scenario1Url)
     }
     
     func loadScenario2() {
+        self.wkWebViewPreferencesManager.enableJavaScript(true)
+        self.wkWebViewPreferencesManager.enableJavaScriptBridge(false)
+        self.wkWebViewPreferencesManager.enableUndocumentedAllowAccessFromFileURLs(false)
+        
         let scenario2HtmlPath = Bundle.main.url(forResource: "web/WKWebView/scenario2.html", withExtension: nil)
         do {
             let scenario2Html = try String(contentsOf: scenario2HtmlPath!, encoding: .utf8)
             wkWebView.loadHTMLString(scenario2Html, baseURL: nil)
         } catch {}
+    }
+    
+    func loadScenario3() {
+        self.wkWebViewPreferencesManager.enableJavaScript(true)
+        self.wkWebViewPreferencesManager.enableJavaScriptBridge(true)
+        self.wkWebViewPreferencesManager.enableUndocumentedAllowAccessFromFileURLs(false)
+        
+        let scenario4Url = Bundle.main.url(forResource: "web/WKWebView/scenario3.html", withExtension: nil)
+        wkWebView.load(URLRequest(url: scenario4Url!))
     }
 
     @IBAction func goToUrl(_ sender: Any) {

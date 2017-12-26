@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+    <script src="http://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+</head>
+<html>
+    <body>
+        <h1>WKWebView Scenario 3</h1>
+        <h2>JavaScript bridge to native functionality</h2>
+        <h3>Description</h3>
+        <p>In this scenario the page makes a call to native functionality.
+        Some content is loaded insecurely from the Internet over http.</p>
+        
+        <h3>Tasks</h3>
+        <ol>
+            <li>Can you steal the secret exposed via native functionality using a man-in-the middle attack? </li>
+        </ol>
+        <hr/>
+        <h3>Page Content</h3>
+        <p>The result of the "multiply" operation is calculated by native code.</p>
+        
+        <script>
+            function javascriptBridgeCallBack(name, value) {
+                if (name == "multiplyNumbers") {
+                    document.getElementById("result").textContent = value
+                }
+            }
+        
+        function invokeNativeOperation() {
+            value1 = document.getElementById("value1").value
+            value2 = document.getElementById("value2").value
+            window.webkit.messageHandlers.javaScriptBridge.postMessage(["multiplyNumbers", value1, value2]);
+        }
+        
+        </script>
+        
+        <form onsubmit="event.preventDefault(); invokeNativeOperation()">
+            <input type="text" id="value1" value="3"/>
+            <input type="text" id="value2" value="4.5"/>
+            <input type="submit" value="Multiply">
+        </form>
+        
+        <p>The result is:</p>
+        <p id="result" style="background-color: #E0E0E0"></p>
+        
+        <hr/>
+        
+        <h3>Exploitation Helper</h3>
+        
+        <form id="payload_form" onsubmit="event.preventDefault(); window.eval(document.getElementById('payload').value)" action="#">
+            <label for="payload">You can simulate the attack by writing a payload in the text area below and pressing 'Evaluate Payload':</label><br>
+            <textarea id="payload" rows=6 style="width:100%">document.getElementById("result").innerHTML="1337";</textarea>
+            <button id="run_payload" type="submit">Evaluate Payload</button>
+        </form>
+        
+    </body>
+</html>
+
