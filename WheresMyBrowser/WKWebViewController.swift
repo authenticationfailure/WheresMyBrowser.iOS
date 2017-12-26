@@ -113,17 +113,10 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
     // Fake progress bar simulation
     @objc func progressBarTimerCallback() {
         if progressBarPageLoaded {
-            if progressBar.progress >= 1 {
-                progressBarTimer.invalidate();
-                progressBar.progress = 0;
-            } else {
-                progressBar.progress += 0.1;
-            }
+            progressBarTimer.invalidate();
+            progressBar.progress = 0;
         } else {
-            progressBar.progress += 0.05;
-            if progressBar.progress >= 0.95 {
-                progressBar.progress = 0.95;
-            }
+            progressBar.progress = Float(wkWebView.estimatedProgress)
         }
     }
     
