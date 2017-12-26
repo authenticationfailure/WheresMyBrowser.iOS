@@ -4,7 +4,7 @@
 </head>
 <html>
     <body>
-        <h1>UIWebView Scenario 2</h1>
+        <h1>WKWebView Scenario 2</h1>
         <h2>Resource loaded via loadHTMLstring</h2>
         <h3>Description</h3>
         <p>In this scenario the page content is loaded into the UIWebView from a string using the loadHTMLString method and the baseURL parameter is not explicitely specified, but it is set to 'nil'.
@@ -12,8 +12,8 @@
         
         <h3>Tasks</h3>
         <ol>
-            <li>Simlilary to "UIWebView Scenario 1", Can you exfiltrate the secret from the user's defaults plist file using a man-in-the middle attack?</li>
-            <li>What does it make it more difficult to exploit than in "UIWebView Scenario 1"?</li>
+            <li>Compare this case to "UIWebView Scenario 2". The default origin in the loadHTMLString differs between the UIWebView and the WKWebView. What are the two origins?
+            <li>Is it still possible to exfiltrate the secret from the user's defaults plist file?</li>
         </ol>
         <hr/>
         <h3>Page Content</h3>
@@ -38,11 +38,12 @@
                     }
                 }
             }
-            // The comments API implements a CORS policy
-            // and returns the header Access-Control-Allow-Origin: file://
-            xhttp_comment.open("GET", "http://jsonplaceholder.typicode.com/posts/1/comments/", true);
-            xhttp_comment.send();
-        </script>
+        // The comments API implements a CORS policy
+        // and returns the header Access-Control-Allow-Origin: file://
+        // This fails for WKWebViews as they require.
+        xhttp_comment.open("GET", "http://jsonplaceholder.typicode.com/posts/1/comments/", true);
+        xhttp_comment.send();
+            </script>
         
         <script>
             var xhttp_no_cors = new XMLHttpRequest();
@@ -50,15 +51,15 @@
             xhttp_no_cors.onreadystatechange = function () {
                 if (this.readyState == 4) {
                     if (this.status == 200) {
-                        jsonObject=JSON.parse(this.responseText.replace(/\/\/\ \[/,"["));
+                        jsonObject=JSON.parse(this.responseText.rseplace(/\/\/\ \[/,"["));
                         console.log(jsonObject[0].f_reuters_url);
                         document.getElementById("output_stock").innerHTML=jsonObject[0].l+" USD";
                     } else {
-                        document.getElementById("output_stock").innerHTML= "<div style='color:red'>Error: could not load remote data</div>";
+                        document.getElementById("output_stock").innerHTML= "<div style='color:red'>Error: could not load remote data. This is the expected behaviour for WKWebViews.</div>";
                     }
                 }
             }
-          
+                         
             // The finance API does not set a CORS policy
             xhttp_no_cors.open("GET", "http://finance.google.com/finance?q=NASDAQ:AAPL&output=json", true);
             xhttp_no_cors.send();
@@ -79,3 +80,4 @@
         
     </body>
 </html>
+

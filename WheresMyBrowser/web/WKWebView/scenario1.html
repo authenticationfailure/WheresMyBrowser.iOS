@@ -4,17 +4,22 @@
 </head>
 <html>
     <body>
-        <h1>UIWebView Scenario 2</h1>
-        <h2>Resource loaded via loadHTMLstring</h2>
+        <h1>WKWebView Scenario 1</h1>
+        <h2>Resource loaded from file:// Url</h2>
         <h3>Description</h3>
-        <p>In this scenario the page content is loaded into the UIWebView from a string using the loadHTMLString method and the baseURL parameter is not explicitely specified, but it is set to 'nil'.
-        The page content loads resources insecurely from the Internet over http.</p>
+        <p>In this scenario the page is loaded from a file:// URL;
+        however some content is loaded insecurely from the Internet over http.</p>
         
         <h3>Tasks</h3>
         <ol>
-            <li>Simlilary to "UIWebView Scenario 1", Can you exfiltrate the secret from the user's defaults plist file using a man-in-the middle attack?</li>
-            <li>What does it make it more difficult to exploit than in "UIWebView Scenario 1"?</li>
+            <li>This scenario replicates the "UIWebView Scenario 1"; however WKWebViews behave differently*. Is it still possible to exfiltrate the secret from the user's defaults plist file?</li>
+            <li>Notice that contrary to the "UIWebView Scenario 1", the Apple stock price fails to load. However the comment does load correctly. Can you explain why?</li>
         </ol>
+        <p>* WKWebViews don't allow JavaScript to access the content of file:// URLs. This behaviour can be changed by setting the undocumented preference "allowFileAccessFromFileURLs" to "Yes":
+            <code>
+        wkWebView.configuration.preferences.setValue("Yes", forKey: "allowFileAccessFromFileURLs")
+        </code>
+        </p>
         <hr/>
         <h3>Page Content</h3>
         This data is fetched from two remote APIs.
@@ -38,11 +43,11 @@
                     }
                 }
             }
-            // The comments API implements a CORS policy
-            // and returns the header Access-Control-Allow-Origin: file://
-            xhttp_comment.open("GET", "http://jsonplaceholder.typicode.com/posts/1/comments/", true);
-            xhttp_comment.send();
-        </script>
+        // The comments API implements a CORS policy
+        // and returns the header Access-Control-Allow-Origin: file://
+        xhttp_comment.open("GET", "http://jsonplaceholder.typicode.com/posts/1/comments/", true);
+        xhttp_comment.send();
+            </script>
         
         <script>
             var xhttp_no_cors = new XMLHttpRequest();
@@ -54,12 +59,13 @@
                         console.log(jsonObject[0].f_reuters_url);
                         document.getElementById("output_stock").innerHTML=jsonObject[0].l+" USD";
                     } else {
-                        document.getElementById("output_stock").innerHTML= "<div style='color:red'>Error: could not load remote data</div>";
+                        document.getElementById("output_stock").innerHTML= "<div style='color:red'>Error: could not load remote data. This is the expected behaviour for WKWebViews.</div>";
                     }
                 }
             }
-          
+                         
             // The finance API does not set a CORS policy
+            // This fails to load in a WKWebView
             xhttp_no_cors.open("GET", "http://finance.google.com/finance?q=NASDAQ:AAPL&output=json", true);
             xhttp_no_cors.send();
         </script>
@@ -79,3 +85,4 @@
         
     </body>
 </html>
+

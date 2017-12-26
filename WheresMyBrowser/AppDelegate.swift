@@ -31,17 +31,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             userDefaults.set("The secret is: IDXTT2Y3S", forKey: "Secret")
         }
         
-        // Copy file for scenario1
-        let scenario1HtmlOriginPath = Bundle.main.url(forResource: "web/UIWebView/scenario1.html", withExtension: nil)
-        let documentDirectoryPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let scenario1DirDestinationPath = documentDirectoryPath.appendingPathComponent("UIWebView")
-        let scenario1HtmlDestinationPath = documentDirectoryPath.appendingPathComponent("UIWebView/scenario1.html")
-        do {
-            try FileManager.default.createDirectory(at: scenario1DirDestinationPath, withIntermediateDirectories: false, attributes: nil)
-            let scenario1Html = try String(contentsOf: scenario1HtmlOriginPath!, encoding: .utf8)
-            try scenario1Html.write(to: scenario1HtmlDestinationPath, atomically: false, encoding: .utf8)
-        } catch {
-            NSLog("Error copying scenario files from bundle to document directory: \(error.localizedDescription)")
+        // Copy scenario files from App Bundle to Data container
+        
+        let copyOperations = [(from: "web/UIWebView/scenario1.html", to: "UIWebView/scenario1.html"),
+                              (from: "web/WKWebView/scenario1.html", to: "WKWebView/scenario1.html")]
+        
+        let fileManager = FileManager.default
+        let libraryDirectoryPath = fileManager.urls(for: .libraryDirectory, in: .userDomainMask)[0]
+        let uiWVDirDestinationPath = libraryDirectoryPath.appendingPathComponent("UIWebView")
+        let wkWVDirDestinationPath = libraryDirectoryPath.appendingPathComponent("WKWebView")
+        
+        for dirToCreate in [uiWVDirDestinationPath, wkWVDirDestinationPath] {
+            if !fileManager.fileExists(atPath: dirToCreate.absoluteString) {
+                do {
+                    try fileManager.createDirectory(at: dirToCreate, withIntermediateDirectories: false, attributes: nil)
+                }
+                catch {}
+            }
+        }
+        
+        for copyOperation in copyOperations {
+            do {
+                let originPath = Bundle.main.url(forResource: copyOperation.from, withExtension: nil)
+                let destinationPath = libraryDirectoryPath.appendingPathComponent(copyOperation.to)
+                
+                if fileManager.fileExists(atPath: copyOperation.to) {
+                    try fileManager.removeItem(at: URL(string: copyOperation.to)!)
+                }
+                
+                let originFileContents = try String(contentsOf: originPath!, encoding: .utf8)
+                try originFileContents.write(to: destinationPath, atomically: false, encoding: .utf8)
+                
+            } catch {
+                NSLog("Error copying scenario files from bundle to document directory: \(error.localizedDescription)")
+            }
         }
         
         return true

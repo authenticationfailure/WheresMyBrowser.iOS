@@ -13,6 +13,7 @@
         <h3>Tasks</h3>
         <ol>
             <li>Can you exfiltrate the secret from the user's defaults plist file using a man-in-the middle attack?</li>
+            <li>This page retrieves comments and stock price information from two distinct APIs. The stock price API does not implement appropriate Cross Origin Resource Sharing (CORS) headers but it is possible to access the data via JavaScript. Notice that page cookies are sent with the request. Why is this dangerous behaviour?</li>
         </ol>
         <hr/>
         <h3>Page Content</h3>
@@ -21,7 +22,7 @@
         <p>The last comment is:</p>
         <p id="output_comment" style="background-color: #E0E0E0"></p>
         
-        <p>Google stock price is:</p>
+        <p>Apple stock price is:</p>
         <p id="output_stock" style="background-color: #E0E0E0"></p>
         
         <script>
@@ -59,7 +60,7 @@
             }
           
             // The finance API does not set a CORS policy
-            xhttp_no_cors.open("GET", "http://finance.google.com/finance?q=NASDAQ:GOOGL&output=json", true);
+            xhttp_no_cors.open("GET", "http://finance.google.com/finance?q=NASDAQ:AAPL&output=json", true);
             xhttp_no_cors.send();
         </script>
         

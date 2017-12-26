@@ -197,7 +197,7 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
     }
     
     func loadScenario1() {
-        var scenario1Url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        var scenario1Url = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)[0]
         scenario1Url = scenario1Url.appendingPathComponent("UIWebView/scenario1.html")
         uiWebView.loadRequest(URLRequest(url: scenario1Url))
     }

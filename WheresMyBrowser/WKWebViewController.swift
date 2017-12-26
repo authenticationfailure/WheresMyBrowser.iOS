@@ -133,11 +133,11 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
         let scenarioActionSheet = UIAlertController(title: "Select a scenario", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         
         let scenario1Action = UIAlertAction(title: "Scenario 1", style: UIAlertActionStyle.default) { (action) in
-            print("Scenario 1 selected")
+            self.loadScenario1()
         }
         
         let scenario2Action = UIAlertAction(title: "Scenario 2", style: UIAlertActionStyle.default) { (action) in
-            print("Scenario 2 selected")
+            self.loadScenario2()
         }
         
         let scenario3Action = UIAlertAction(title: "Scenario 3", style: UIAlertActionStyle.default) { (action) in
@@ -158,6 +158,24 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
         }
         
         self.present(scenarioActionSheet, animated: true, completion: nil)
+    }
+    
+    func loadScenario1() {
+        var scenario1Url = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)[0]
+        scenario1Url = scenario1Url.appendingPathComponent("WKWebView/scenario1.html")
+        
+        // This is an undocumented workaround to allow file access from file origin
+        //wkWebView.configuration.preferences.setValue("Yes", forKey: "allowFileAccessFromFileURLs")
+
+        wkWebView.loadFileURL(scenario1Url, allowingReadAccessTo: scenario1Url)
+    }
+    
+    func loadScenario2() {
+        let scenario2HtmlPath = Bundle.main.url(forResource: "web/WKWebView/scenario2.html", withExtension: nil)
+        do {
+            let scenario2Html = try String(contentsOf: scenario2HtmlPath!, encoding: .utf8)
+            wkWebView.loadHTMLString(scenario2Html, baseURL: nil)
+        } catch {}
     }
 
     @IBAction func goToUrl(_ sender: Any) {
