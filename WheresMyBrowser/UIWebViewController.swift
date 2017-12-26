@@ -198,12 +198,12 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
     
     func loadScenario1() {
         var scenario1Url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        scenario1Url = scenario1Url.appendingPathComponent("scenario1.html")
+        scenario1Url = scenario1Url.appendingPathComponent("UIWebView/scenario1.html")
         uiWebView.loadRequest(URLRequest(url: scenario1Url))
     }
     
     func loadScenario2() {
-        let scenario2HtmlPath = Bundle.main.url(forResource: "web/scenario2.html", withExtension: nil)
+        let scenario2HtmlPath = Bundle.main.url(forResource: "web/UIWebView/scenario2.html", withExtension: nil)
         do {
             let scenario2Html = try String(contentsOf: scenario2HtmlPath!, encoding: .utf8)
             uiWebView.loadHTMLString(scenario2Html, baseURL: nil)
@@ -211,7 +211,7 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
     }
     
     func loadScenario3() {
-        let scenario3HtmlPath = Bundle.main.url(forResource: "web/scenario3.html", withExtension: nil)
+        let scenario3HtmlPath = Bundle.main.url(forResource: "web/UIWebView/scenario3.html", withExtension: nil)
         do {
             let scenario3Html = try String(contentsOf: scenario3HtmlPath!, encoding: .utf8)
             uiWebView.loadHTMLString(scenario3Html, baseURL: URL(string: "about:blank"))
@@ -219,7 +219,7 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
     }
     
     func loadScenario4() {
-        let scenario4Url = Bundle.main.url(forResource: "web/scenario4.html", withExtension: nil)
+        let scenario4Url = Bundle.main.url(forResource: "web/UIWebView/scenario4.html", withExtension: nil)
         uiWebView.loadRequest(URLRequest(url: scenario4Url!))
     }
 }

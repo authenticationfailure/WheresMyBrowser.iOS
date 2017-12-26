@@ -32,14 +32,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Copy file for scenario1
-        let scenario1HtmlOriginPath = Bundle.main.url(forResource: "web/scenario1.html", withExtension: nil)
+        let scenario1HtmlOriginPath = Bundle.main.url(forResource: "web/UIWebView/scenario1.html", withExtension: nil)
         let documentDirectoryPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let scenario1HtmlDestinationPath = documentDirectoryPath.appendingPathComponent("scenario1.html")
+        let scenario1DirDestinationPath = documentDirectoryPath.appendingPathComponent("UIWebView")
+        let scenario1HtmlDestinationPath = documentDirectoryPath.appendingPathComponent("UIWebView/scenario1.html")
         do {
+            try FileManager.default.createDirectory(at: scenario1DirDestinationPath, withIntermediateDirectories: false, attributes: nil)
             let scenario1Html = try String(contentsOf: scenario1HtmlOriginPath!, encoding: .utf8)
             try scenario1Html.write(to: scenario1HtmlDestinationPath, atomically: false, encoding: .utf8)
         } catch {
-            
+            NSLog("Error copying scenario files from bundle to document directory: \(error.localizedDescription)")
         }
         
         return true
