@@ -13,7 +13,8 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
 
     @IBOutlet weak var urlBar: UITextField!
     @IBOutlet weak var progressBar: UIProgressView!
-
+    @IBOutlet weak var backButton: UIButton!
+    
     var wkWebView: WKWebView!
     var wkWebViewPreferencesManager: WKWebViewPreferencesManager!
     
@@ -75,12 +76,14 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         progressBarPageLoaded = true;
+        backButton.isEnabled = wkWebView.canGoBack
         urlBar.text = wkWebView.url?.absoluteString;
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         showOkAlert(title: "Resource failed to load", message: error.localizedDescription)
         progressBarPageLoaded = true;
+        backButton.isEnabled = wkWebView.canGoBack
         urlBar.text = wkWebView.url?.absoluteString;
     }
     
@@ -89,6 +92,7 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
                  withError error: Error) {
         showOkAlert(title: "Resource failed to load", message: error.localizedDescription)
         progressBarPageLoaded = true;
+        backButton.isEnabled = wkWebView.canGoBack
         urlBar.text = wkWebView.url?.absoluteString;
     }
     
@@ -203,6 +207,12 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
         loadUrlFromBar()
     }
 
+    @IBAction func backButtonPressed(_ sender: Any) {
+        if wkWebView.canGoBack {
+            wkWebView.goBack()
+        }
+    }
+    
     @IBAction func urlBarEditingGo(_ sender: UITextField) {
         loadUrlFromBar()
     }

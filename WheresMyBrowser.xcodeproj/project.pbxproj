@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC0FABEB1FF407BE00A3D705 /* UIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0FABEA1FF407BD00A3D705 /* UIWebViewController.swift */; };
 		CCAC81E21FF3916D0056FAFB /* WKPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC81E11FF3916D0056FAFB /* WKPreferencesViewController.swift */; };
 		CCD212FF1FEFE348000B0D87 /* LoadContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD212FE1FEFE348000B0D87 /* LoadContentViewController.swift */; };
 		CCD213041FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD213031FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift */; };
 		CCD213061FF2AFDD000B0D87 /* JavaScriptBridgeMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD213051FF2AFDD000B0D87 /* JavaScriptBridgeMessageHandler.swift */; };
 		CCDF50151FEA9A63005170F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF50141FEA9A63005170F5 /* AppDelegate.swift */; };
-		CCDF50171FEA9A63005170F5 /* UIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF50161FEA9A63005170F5 /* UIWebViewController.swift */; };
 		CCDF50191FEA9A63005170F5 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF50181FEA9A63005170F5 /* WKWebViewController.swift */; };
 		CCDF501C1FEA9A63005170F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCDF501A1FEA9A63005170F5 /* Main.storyboard */; };
 		CCDF501E1FEA9A63005170F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCDF501D1FEA9A63005170F5 /* Assets.xcassets */; };
@@ -33,13 +33,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC0FABEA1FF407BD00A3D705 /* UIWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWebViewController.swift; sourceTree = "<group>"; };
 		CCAC81E11FF3916D0056FAFB /* WKPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKPreferencesViewController.swift; sourceTree = "<group>"; };
 		CCD212FE1FEFE348000B0D87 /* LoadContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadContentViewController.swift; sourceTree = "<group>"; };
 		CCD213031FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewPreferencesManager.swift; sourceTree = "<group>"; };
 		CCD213051FF2AFDD000B0D87 /* JavaScriptBridgeMessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaScriptBridgeMessageHandler.swift; sourceTree = "<group>"; };
 		CCDF50111FEA9A63005170F5 /* WheresMyBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WheresMyBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCDF50141FEA9A63005170F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CCDF50161FEA9A63005170F5 /* UIWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWebViewController.swift; sourceTree = "<group>"; };
 		CCDF50181FEA9A63005170F5 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		CCDF501B1FEA9A63005170F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CCDF501D1FEA9A63005170F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,9 +91,9 @@
 		CCDF50131FEA9A63005170F5 /* WheresMyBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				CC0FABEA1FF407BD00A3D705 /* UIWebViewController.swift */,
 				CCDF503E1FEE6435005170F5 /* web */,
 				CCDF50141FEA9A63005170F5 /* AppDelegate.swift */,
-				CCDF50161FEA9A63005170F5 /* UIWebViewController.swift */,
 				CCDF50181FEA9A63005170F5 /* WKWebViewController.swift */,
 				CCD213031FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift */,
 				CCAC81E11FF3916D0056FAFB /* WKPreferencesViewController.swift */,
@@ -224,11 +224,11 @@
 				CCDF50191FEA9A63005170F5 /* WKWebViewController.swift in Sources */,
 				CCDF50151FEA9A63005170F5 /* AppDelegate.swift in Sources */,
 				CCD213061FF2AFDD000B0D87 /* JavaScriptBridgeMessageHandler.swift in Sources */,
-				CCDF50171FEA9A63005170F5 /* UIWebViewController.swift in Sources */,
 				CCDF50371FEAA91E005170F5 /* DocumentationViewController.swift in Sources */,
 				CCAC81E21FF3916D0056FAFB /* WKPreferencesViewController.swift in Sources */,
 				CCD213041FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift in Sources */,
 				CCD212FF1FEFE348000B0D87 /* LoadContentViewController.swift in Sources */,
+				CC0FABEB1FF407BE00A3D705 /* UIWebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

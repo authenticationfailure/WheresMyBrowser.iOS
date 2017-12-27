@@ -14,6 +14,7 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var uiWebView: UIWebView!
     @IBOutlet weak var progressBar: UIProgressView!
 
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var scenarioButton: UIBarButtonItem!
     
     var progressBarTimer = Timer();
@@ -50,6 +51,13 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
     @IBAction func goToUrl(_ sender: Any) {
         loadUrlFromBar()
     }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        if uiWebView.canGoBack {
+            uiWebView.goBack()
+        }
+    }
+    
     
     @IBAction func urlBarEditingGo(_ sender: UITextField) {
                 loadUrlFromBar()
@@ -91,12 +99,14 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         progressBarPageLoaded = true;
+        backButton.isEnabled = uiWebView.canGoBack
         urlBar.text = uiWebView.request?.url?.absoluteString;
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         showOkAlert(title: "Resource failed to load", message: error.localizedDescription)
         progressBarPageLoaded = true;
+        backButton.isEnabled = uiWebView.canGoBack
         urlBar.text = uiWebView.request?.url?.absoluteString;
     }
     

@@ -20,8 +20,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pwQ-Xp-d4L">
-                                <rect key="frame" x="16" y="80" width="349" height="33"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="http://www.example.com" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pwQ-Xp-d4L">
+                                <rect key="frame" x="41" y="80" width="324" height="33"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="go" textContentType="url"/>
@@ -47,6 +47,16 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pTH-Lw-L5I">
                                 <rect key="frame" x="0.0" y="64" width="414" height="2"/>
                             </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qKi-rX-hrr">
+                                <rect key="frame" x="8" y="80" width="33" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="M9Y-P5-XYl"/>
+                                </constraints>
+                                <state key="normal" title="Back" image="icons8-back"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="P4o-Ng-qgJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -54,15 +64,18 @@
                             <constraint firstItem="pTH-Lw-L5I" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="1u5-3P-A6g"/>
                             <constraint firstItem="pwQ-Xp-d4L" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="16" id="FuV-hU-3Z9"/>
                             <constraint firstItem="zY8-jJ-W0t" firstAttribute="height" secondItem="pwQ-Xp-d4L" secondAttribute="height" id="I2q-DI-MTg"/>
+                            <constraint firstItem="pwQ-Xp-d4L" firstAttribute="leading" secondItem="qKi-rX-hrr" secondAttribute="trailing" id="Ix9-AE-Cn7"/>
                             <constraint firstItem="LRv-iB-TAU" firstAttribute="top" secondItem="pwQ-Xp-d4L" secondAttribute="bottom" constant="16" id="KQ2-Rq-jiD"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="LRv-iB-TAU" secondAttribute="bottom" id="W1J-RN-our"/>
+                            <constraint firstItem="qKi-rX-hrr" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="16" id="WOE-CF-sy4"/>
+                            <constraint firstItem="pwQ-Xp-d4L" firstAttribute="height" secondItem="qKi-rX-hrr" secondAttribute="height" id="XNS-FW-Wfz"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="LRv-iB-TAU" secondAttribute="trailing" id="cXA-oj-dzq"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="zY8-jJ-W0t" secondAttribute="trailing" constant="8" id="hPk-vp-JbL"/>
+                            <constraint firstItem="qKi-rX-hrr" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="8" id="mds-FY-7Id"/>
                             <constraint firstItem="zY8-jJ-W0t" firstAttribute="leading" secondItem="pwQ-Xp-d4L" secondAttribute="trailing" constant="8" id="nYg-XP-gGZ"/>
                             <constraint firstItem="LRv-iB-TAU" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="sND-ey-kBn"/>
                             <constraint firstItem="pTH-Lw-L5I" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="tSP-qF-LXg"/>
                             <constraint firstAttribute="trailing" secondItem="pTH-Lw-L5I" secondAttribute="trailing" id="woy-K8-cUe"/>
-                            <constraint firstItem="pwQ-Xp-d4L" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="xWR-im-E1S"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -82,6 +95,7 @@
                         </leftBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="qKi-rX-hrr" id="bkP-2Q-2Hy"/>
                         <outlet property="progressBar" destination="pTH-Lw-L5I" id="Fdc-C7-ubn"/>
                         <outlet property="scenarioButton" destination="Ibk-qN-dyx" id="GLJ-3d-tMT"/>
                         <outlet property="uiWebView" destination="LRv-iB-TAU" id="YWa-i6-pbH"/>
@@ -265,8 +279,8 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="2"/>
                                 <accessibility key="accessibilityConfiguration" identifier="P"/>
                             </progressView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Y1q-TT-s9b">
-                                <rect key="frame" x="16" y="80" width="349" height="33"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="http://www.example.com" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Y1q-TT-s9b">
+                                <rect key="frame" x="41" y="80" width="324" height="33"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="go" textContentType="url"/>
@@ -278,15 +292,28 @@
                                 <rect key="frame" x="0.0" y="129" width="414" height="558"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPH-Ob-snJ">
+                                <rect key="frame" x="8" y="80" width="33" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="0k2-DH-0Rc"/>
+                                </constraints>
+                                <state key="normal" title="Back" image="icons8-back"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="9as-Y6-3bL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="96p-LD-kkh" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="3ya-i3-gOv"/>
                             <constraint firstItem="Y1q-TT-s9b" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="16" id="9UO-ch-yaD"/>
                             <constraint firstAttribute="trailing" secondItem="96p-LD-kkh" secondAttribute="trailing" id="B0y-de-YDV"/>
+                            <constraint firstItem="lPH-Ob-snJ" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="8" id="J2P-XK-ec0"/>
                             <constraint firstItem="rnU-su-L07" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="NTF-Hv-5Xo"/>
-                            <constraint firstItem="Y1q-TT-s9b" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="16" id="SMH-rh-3Np"/>
+                            <constraint firstItem="Y1q-TT-s9b" firstAttribute="height" secondItem="lPH-Ob-snJ" secondAttribute="height" id="QUa-D3-4BU"/>
+                            <constraint firstItem="Y1q-TT-s9b" firstAttribute="leading" secondItem="lPH-Ob-snJ" secondAttribute="trailing" id="Trw-D9-9Kx"/>
                             <constraint firstItem="Vzs-db-SMD" firstAttribute="height" secondItem="Y1q-TT-s9b" secondAttribute="height" id="Xgy-fE-RAH"/>
+                            <constraint firstItem="lPH-Ob-snJ" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="16" id="YFv-Uk-FuR"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="rnU-su-L07" secondAttribute="trailing" id="jFz-rI-zdS"/>
                             <constraint firstItem="Vzs-db-SMD" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="16" id="jox-eM-bq5"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="rnU-su-L07" secondAttribute="bottom" id="k7g-MV-6eq"/>
@@ -318,6 +345,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="lPH-Ob-snJ" id="EMl-jW-Clr"/>
                         <outlet property="progressBar" destination="96p-LD-kkh" id="Yf5-iS-oRv"/>
                         <outlet property="scenarioButton" destination="IZF-uQ-Td0" id="Cru-Ar-Urt"/>
                         <outlet property="urlBar" destination="Y1q-TT-s9b" id="cSQ-WW-FuO"/>
@@ -438,6 +466,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icons8-back" width="33" height="33"/>
         <image name="icons8-books" width="33" height="33"/>
         <image name="icons8-bulleted-list" width="33" height="33"/>
         <image name="icons8-go" width="33" height="33"/>
