@@ -13,7 +13,7 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
 
     @IBOutlet weak var urlBar: UITextField!
     @IBOutlet weak var progressBar: UIProgressView!
-    
+
     var wkWebView: WKWebView!
     var wkWebViewPreferencesManager: WKWebViewPreferencesManager!
     
@@ -111,6 +111,9 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
         if segue.destination is LoadContentViewController {
             let destination = segue.destination as! LoadContentViewController
             destination.parentWebView = self
+        } else if segue.destination is WKPreferencesViewController {
+            let destination = segue.destination as! WKPreferencesViewController
+            destination.preferencesManager = self.wkWebViewPreferencesManager
         }
     }
     

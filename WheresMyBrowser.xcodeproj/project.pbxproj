@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CCAC81E21FF3916D0056FAFB /* WKPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC81E11FF3916D0056FAFB /* WKPreferencesViewController.swift */; };
 		CCD212FF1FEFE348000B0D87 /* LoadContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD212FE1FEFE348000B0D87 /* LoadContentViewController.swift */; };
 		CCD213041FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD213031FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift */; };
 		CCD213061FF2AFDD000B0D87 /* JavaScriptBridgeMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD213051FF2AFDD000B0D87 /* JavaScriptBridgeMessageHandler.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CCAC81E11FF3916D0056FAFB /* WKPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKPreferencesViewController.swift; sourceTree = "<group>"; };
 		CCD212FE1FEFE348000B0D87 /* LoadContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadContentViewController.swift; sourceTree = "<group>"; };
 		CCD213031FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewPreferencesManager.swift; sourceTree = "<group>"; };
 		CCD213051FF2AFDD000B0D87 /* JavaScriptBridgeMessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaScriptBridgeMessageHandler.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				CCDF50161FEA9A63005170F5 /* UIWebViewController.swift */,
 				CCDF50181FEA9A63005170F5 /* WKWebViewController.swift */,
 				CCD213031FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift */,
+				CCAC81E11FF3916D0056FAFB /* WKPreferencesViewController.swift */,
 				CCD213051FF2AFDD000B0D87 /* JavaScriptBridgeMessageHandler.swift */,
 				CCDF501A1FEA9A63005170F5 /* Main.storyboard */,
 				CCDF501D1FEA9A63005170F5 /* Assets.xcassets */,
@@ -223,6 +226,7 @@
 				CCD213061FF2AFDD000B0D87 /* JavaScriptBridgeMessageHandler.swift in Sources */,
 				CCDF50171FEA9A63005170F5 /* UIWebViewController.swift in Sources */,
 				CCDF50371FEAA91E005170F5 /* DocumentationViewController.swift in Sources */,
+				CCAC81E21FF3916D0056FAFB /* WKPreferencesViewController.swift in Sources */,
 				CCD213041FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift in Sources */,
 				CCD212FF1FEFE348000B0D87 /* LoadContentViewController.swift in Sources */,
 			);
