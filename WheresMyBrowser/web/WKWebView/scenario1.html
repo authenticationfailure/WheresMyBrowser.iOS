@@ -12,7 +12,8 @@
         
         <h3>Tasks</h3>
         <ol>
-            <li>This scenario replicates the "UIWebView Scenario 1"; however WKWebViews behave differently*. Is it still possible to exfiltrate the secret from the user's defaults plist file?</li>
+            <li>This scenario replicates the "UIWebView Scenario 1"; however WKWebViews behave differently. Is it still possible to exfiltrate the secret from the user's defaults plist file?</li>
+            <li>Try enabling the option "Allow File Access from File". This enables an undocumented setting*, which allows to access files from a file:// URL. Can you exfiltrate the secret now?</li>
             <li>Notice that contrary to the "UIWebView Scenario 1", the Apple stock price fails to load. However the comment does load correctly. Can you explain why?</li>
         </ol>
         <p>* WKWebViews don't allow JavaScript to access the content of file:// URLs. This behaviour can be changed by setting the undocumented preference "allowFileAccessFromFileURLs" to "Yes":
