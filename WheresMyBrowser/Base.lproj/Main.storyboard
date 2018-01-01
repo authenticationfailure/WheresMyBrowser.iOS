@@ -52,7 +52,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="M9Y-P5-XYl"/>
                                 </constraints>
-                                <state key="normal" title="Back" image="icons8-back"/>
+                                <state key="normal" image="icons8-back"/>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="P4o-Ng-qgJ"/>
                                 </connections>
@@ -62,7 +62,6 @@
                         <constraints>
                             <constraint firstItem="zY8-jJ-W0t" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="16" id="10p-8T-lsB"/>
                             <constraint firstItem="pTH-Lw-L5I" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="1u5-3P-A6g"/>
-                            <constraint firstItem="pwQ-Xp-d4L" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="16" id="FuV-hU-3Z9"/>
                             <constraint firstItem="zY8-jJ-W0t" firstAttribute="height" secondItem="pwQ-Xp-d4L" secondAttribute="height" id="I2q-DI-MTg"/>
                             <constraint firstItem="pwQ-Xp-d4L" firstAttribute="leading" secondItem="qKi-rX-hrr" secondAttribute="trailing" id="Ix9-AE-Cn7"/>
                             <constraint firstItem="LRv-iB-TAU" firstAttribute="top" secondItem="pwQ-Xp-d4L" secondAttribute="bottom" constant="16" id="KQ2-Rq-jiD"/>
@@ -75,13 +74,14 @@
                             <constraint firstItem="zY8-jJ-W0t" firstAttribute="leading" secondItem="pwQ-Xp-d4L" secondAttribute="trailing" constant="8" id="nYg-XP-gGZ"/>
                             <constraint firstItem="LRv-iB-TAU" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="sND-ey-kBn"/>
                             <constraint firstItem="pTH-Lw-L5I" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="tSP-qF-LXg"/>
+                            <constraint firstItem="pwQ-Xp-d4L" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="16" id="tb7-z2-mJT"/>
                             <constraint firstAttribute="trailing" secondItem="pTH-Lw-L5I" secondAttribute="trailing" id="woy-K8-cUe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <navigationItem key="navigationItem" title="UIWebView" id="xtR-gO-ojz">
                         <leftBarButtonItems>
-                            <barButtonItem title="Scenarios" image="icons8-bulleted-list" id="Ibk-qN-dyx" userLabel="Scenarios">
+                            <barButtonItem image="icons8-bulleted-list" id="Ibk-qN-dyx" userLabel="Scenarios">
                                 <connections>
                                     <action selector="selectScenarioButtonPressed:" destination="9pv-A4-QxB" id="8bK-Yw-xce"/>
                                 </connections>
@@ -266,7 +266,6 @@
                                 <rect key="frame" x="373" y="80" width="33" height="33"/>
                                 <accessibility key="accessibilityConfiguration" identifier="goButton"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="33" id="3un-aX-dtk"/>
                                     <constraint firstAttribute="width" constant="33" id="duN-m3-CNO"/>
                                 </constraints>
                                 <state key="normal" title="Go" image="icons8-go"/>
@@ -297,7 +296,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="0k2-DH-0Rc"/>
                                 </constraints>
-                                <state key="normal" title="Back" image="icons8-back"/>
+                                <state key="normal" image="icons8-back"/>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="9as-Y6-3bL"/>
                                 </connections>
@@ -326,7 +325,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="WKWebView" id="t8C-3s-Spr">
                         <leftBarButtonItems>
-                            <barButtonItem title="Scenarios" image="icons8-bulleted-list" id="IZF-uQ-Td0" userLabel="Scenarios">
+                            <barButtonItem image="icons8-bulleted-list" id="IZF-uQ-Td0" userLabel="Scenarios">
                                 <connections>
                                     <action selector="selectScenarioButtonPressed:" destination="8rJ-Kc-sve" id="iYG-0W-y9Q"/>
                                 </connections>
@@ -338,7 +337,7 @@
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" title="Settings" image="icons8-settings" id="d2f-oo-lyE" userLabel="Settings">
+                        <barButtonItem key="rightBarButtonItem" image="icons8-settings" id="d2f-oo-lyE" userLabel="Settings">
                             <connections>
                                 <segue destination="tqQ-v3-d7T" kind="show" identifier="segueToLoadContentView" id="maj-bZ-q19"/>
                             </connections>
@@ -364,13 +363,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TODO: Add link to documentation and about" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXZ-rE-qOh">
-                                <rect key="frame" x="20" y="358" width="374" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfT-PJ-yLs">
+                                <rect key="frame" x="0.0" y="35" width="414" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Documentation
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="24" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+The documentation is available on the official website:
+
+https://www.authenticationfailure.com/wmb</string>
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="vMT-b3-Txy"/>
@@ -384,23 +403,93 @@
         <!--About-->
         <scene sceneID="J8t-HA-0Vr">
             <objects>
-                <viewController id="FYD-p3-6fn" sceneMemberID="viewController">
+                <viewController id="FYD-p3-6fn" customClass="AboutViewController" customModule="WheresMyBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C8f-RA-cgE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TODO: add about info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ke4-25-YDM">
-                                <rect key="frame" x="20" y="358" width="333" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about-logo" translatesAutoresizingMaskIntoConstraints="NO" id="xWs-cy-u6g">
+                                <rect key="frame" x="143" y="68" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="KxE-xg-zRE"/>
+                                    <constraint firstAttribute="height" constant="128" id="s8O-ZL-txu"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KR0-Zl-5lX">
+                                <rect key="frame" x="0.0" y="267.66666666666669" width="414" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juG-ju-tCP">
+                                <rect key="frame" x="0.0" y="212" width="414" height="48"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Where's My Browser?">
+                                        <attributes>
+                                            <font key="NSFont" size="24" name=".SFNSDisplay"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="21"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Learn Hacking WebViews">
+                                        <attributes>
+                                            <font key="NSFont" size="17" name=".SFNSDisplay"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="55w-aM-cwZ">
+                                <rect key="frame" x="16" y="304.66666666666674" width="382" height="366.33333333333326"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Website: https://www.authenticationfailure.com/wmb/
+
+GitHub: https://github.com/authenticationfailure/WheresMyBrowser.iOS
+
+Twitter: @endle__
+
+Copyright 2017, 2018 David Turco
+
+This program is distributed under the terms of the GNU General Public License v3.0.
+https://www.gnu.org/licenses/gpl.html
+
+Icons from https://icons8.com</string>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="55w-aM-cwZ" firstAttribute="leading" secondItem="430-wn-3Ux" secondAttribute="leading" constant="16" id="3oJ-14-e2f"/>
+                            <constraint firstItem="430-wn-3Ux" firstAttribute="trailing" secondItem="xWs-cy-u6g" secondAttribute="trailing" constant="143" id="6qv-VE-Ati"/>
+                            <constraint firstItem="430-wn-3Ux" firstAttribute="trailing" secondItem="KR0-Zl-5lX" secondAttribute="trailing" id="EGd-uz-CxS"/>
+                            <constraint firstItem="juG-ju-tCP" firstAttribute="leading" secondItem="430-wn-3Ux" secondAttribute="leading" id="MxJ-gF-1rR"/>
+                            <constraint firstItem="430-wn-3Ux" firstAttribute="trailing" secondItem="55w-aM-cwZ" secondAttribute="trailing" constant="16" id="QZa-BC-9lr"/>
+                            <constraint firstItem="430-wn-3Ux" firstAttribute="trailing" secondItem="juG-ju-tCP" secondAttribute="trailing" id="W3c-0X-a0Z"/>
+                            <constraint firstItem="55w-aM-cwZ" firstAttribute="top" secondItem="KR0-Zl-5lX" secondAttribute="bottom" constant="16" id="aAd-Qt-6WX"/>
+                            <constraint firstItem="xWs-cy-u6g" firstAttribute="leading" secondItem="430-wn-3Ux" secondAttribute="leading" constant="143" id="dQy-2u-7c1"/>
+                            <constraint firstItem="430-wn-3Ux" firstAttribute="bottom" secondItem="55w-aM-cwZ" secondAttribute="bottom" constant="16" id="eSW-C9-fzU"/>
+                            <constraint firstItem="xWs-cy-u6g" firstAttribute="top" secondItem="430-wn-3Ux" secondAttribute="top" constant="48" id="gMc-KJ-rFK"/>
+                            <constraint firstItem="KR0-Zl-5lX" firstAttribute="top" secondItem="juG-ju-tCP" secondAttribute="bottom" constant="8" id="gtc-9Y-zf1"/>
+                            <constraint firstItem="juG-ju-tCP" firstAttribute="top" secondItem="xWs-cy-u6g" secondAttribute="bottom" constant="16" id="mGT-zA-bcx"/>
+                            <constraint firstItem="KR0-Zl-5lX" firstAttribute="leading" secondItem="430-wn-3Ux" secondAttribute="leading" id="nrU-NN-1Gl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="430-wn-3Ux"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" image="icons8-info" id="Bq0-tB-wWj"/>
+                    <connections>
+                        <outlet property="versionLabel" destination="KR0-Zl-5lX" id="nRC-ey-6Pf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTU-i6-0FR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -466,6 +555,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="about-logo" width="256" height="256"/>
         <image name="icons8-back" width="33" height="33"/>
         <image name="icons8-books" width="33" height="33"/>
         <image name="icons8-bulleted-list" width="33" height="33"/>
@@ -476,6 +566,6 @@
         <image name="icons8-wk-webview" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gUP-m1-FGM"/>
+        <segue reference="2me-AX-dK2"/>
     </inferredMetricsTieBreakers>
 </document>

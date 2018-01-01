@@ -142,7 +142,7 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
     
     func showScenarioSelection() {
         
-        let scenarioActionSheet = UIAlertController(title: "Select a scenario", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let scenarioActionSheet = UIAlertController(title: "Select a WKWebView scenario", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         
         let scenario1Action = UIAlertAction(title: "Scenario 1", style: UIAlertActionStyle.default) { (action) in
             self.loadScenario1()

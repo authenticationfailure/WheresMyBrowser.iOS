@@ -20,6 +20,7 @@
 		CCDF502C1FEA9A63005170F5 /* WheresMyBrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF502B1FEA9A63005170F5 /* WheresMyBrowserTests.swift */; };
 		CCDF50371FEAA91E005170F5 /* DocumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDF50361FEAA91E005170F5 /* DocumentationViewController.swift */; };
 		CCDF503F1FEE6435005170F5 /* web in Resources */ = {isa = PBXBuildFile; fileRef = CCDF503E1FEE6435005170F5 /* web */; };
+		CCE2286F1FF96CD20052C2CE /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE2286E1FF96CD20052C2CE /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		CCDF502D1FEA9A63005170F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCDF50361FEAA91E005170F5 /* DocumentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationViewController.swift; sourceTree = "<group>"; };
 		CCDF503E1FEE6435005170F5 /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = "<group>"; };
+		CCE2286E1FF96CD20052C2CE /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,9 +93,9 @@
 		CCDF50131FEA9A63005170F5 /* WheresMyBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				CC0FABEA1FF407BD00A3D705 /* UIWebViewController.swift */,
 				CCDF503E1FEE6435005170F5 /* web */,
 				CCDF50141FEA9A63005170F5 /* AppDelegate.swift */,
+				CC0FABEA1FF407BD00A3D705 /* UIWebViewController.swift */,
 				CCDF50181FEA9A63005170F5 /* WKWebViewController.swift */,
 				CCD213031FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift */,
 				CCAC81E11FF3916D0056FAFB /* WKPreferencesViewController.swift */,
@@ -104,6 +106,7 @@
 				CCDF50221FEA9A63005170F5 /* Info.plist */,
 				CCDF50361FEAA91E005170F5 /* DocumentationViewController.swift */,
 				CCD212FE1FEFE348000B0D87 /* LoadContentViewController.swift */,
+				CCE2286E1FF96CD20052C2CE /* AboutViewController.swift */,
 			);
 			path = WheresMyBrowser;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				CCDF50191FEA9A63005170F5 /* WKWebViewController.swift in Sources */,
 				CCDF50151FEA9A63005170F5 /* AppDelegate.swift in Sources */,
 				CCD213061FF2AFDD000B0D87 /* JavaScriptBridgeMessageHandler.swift in Sources */,
+				CCE2286F1FF96CD20052C2CE /* AboutViewController.swift in Sources */,
 				CCDF50371FEAA91E005170F5 /* DocumentationViewController.swift in Sources */,
 				CCAC81E21FF3916D0056FAFB /* WKPreferencesViewController.swift in Sources */,
 				CCD213041FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift in Sources */,
@@ -382,6 +386,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WheresMyBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -397,6 +402,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WheresMyBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

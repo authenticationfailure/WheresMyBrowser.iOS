@@ -120,8 +120,7 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
         // the result will be retrned to the JavaScript page by calling the function
         // javascriptBridgeCallBack("getSecret", secret)
     
-        if requestUrl != nil &&
-            requestUrl!.scheme == "javascriptbridge" {
+        if requestUrl?.scheme == "javascriptbridge" {
             print("Invoked javascriptbridge: " + requestUrl!.absoluteString)
             var javaScriptCallBack = ""
             switch requestUrl!.host {
@@ -135,12 +134,10 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
                 } else {
                     javaScriptCallBack = "javascriptBridgeCallBack('addNumbers','Error: invalid numbers')"
                 }
-                break
             case "getSecret"?:
                 let secret = "EtWsaCCFS432"
                 let javaScriptCallBack = "javascriptBridgeCallBack('getSecret','\(secret)')"
                 uiWebView.stringByEvaluatingJavaScript(from: javaScriptCallBack)
-                break
                 
             default:
                 return true
@@ -173,7 +170,7 @@ class UIWebViewController: UIViewController, UIWebViewDelegate {
     
     func showScenarioSelection() {
         
-        let scenarioActionSheet = UIAlertController(title: "Select a scenario", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let scenarioActionSheet = UIAlertController(title: "Select a UIWebView scenario", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
         
         let scenario1Action = UIAlertAction(title: "Scenario 1", style: UIAlertActionStyle.default) { (action) in
             self.loadScenario1()

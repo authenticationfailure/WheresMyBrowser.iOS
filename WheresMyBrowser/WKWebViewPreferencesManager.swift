@@ -83,7 +83,10 @@ class WKWebViewPreferencesManager {
     
     func enableJavaScript(_ enabled: Bool) {
         options_dict["javaScript"]?.value = enabled
-        wkWebViewPreferences.javaScriptEnabled = enabled
+        if wkWebViewPreferences.javaScriptEnabled != wkWebViewPreferences.javaScriptEnabled {
+            wkWebViewPreferences.javaScriptEnabled = enabled
+            wkWebView.reload()
+        }
     }
     
     func enableJavaScriptBridge(_ enabled: Bool) {
