@@ -10,6 +10,10 @@
 		CC0FABEB1FF407BE00A3D705 /* UIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0FABEA1FF407BD00A3D705 /* UIWebViewController.swift */; };
 		CCAC81E21FF3916D0056FAFB /* WKPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC81E11FF3916D0056FAFB /* WKPreferencesViewController.swift */; };
 		CCBD9EBA200230D400FD1353 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBD9EB9200230D400FD1353 /* MainTabBarViewController.swift */; };
+		CCBD9EBF20024FD400FD1353 /* AUTHORS in Resources */ = {isa = PBXBuildFile; fileRef = CCBD9EBB20024FD300FD1353 /* AUTHORS */; };
+		CCBD9EC020024FD400FD1353 /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = CCBD9EBC20024FD300FD1353 /* COPYING */; };
+		CCBD9EC120024FD400FD1353 /* INSTALL.md in Resources */ = {isa = PBXBuildFile; fileRef = CCBD9EBD20024FD400FD1353 /* INSTALL.md */; };
+		CCBD9EC220024FD400FD1353 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CCBD9EBE20024FD400FD1353 /* README.md */; };
 		CCD212FF1FEFE348000B0D87 /* LoadContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD212FE1FEFE348000B0D87 /* LoadContentViewController.swift */; };
 		CCD213041FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD213031FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift */; };
 		CCD213061FF2AFDD000B0D87 /* JavaScriptBridgeMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD213051FF2AFDD000B0D87 /* JavaScriptBridgeMessageHandler.swift */; };
@@ -38,6 +42,10 @@
 		CC0FABEA1FF407BD00A3D705 /* UIWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWebViewController.swift; sourceTree = "<group>"; };
 		CCAC81E11FF3916D0056FAFB /* WKPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKPreferencesViewController.swift; sourceTree = "<group>"; };
 		CCBD9EB9200230D400FD1353 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		CCBD9EBB20024FD300FD1353 /* AUTHORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
+		CCBD9EBC20024FD300FD1353 /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		CCBD9EBD20024FD400FD1353 /* INSTALL.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = INSTALL.md; sourceTree = "<group>"; };
+		CCBD9EBE20024FD400FD1353 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CCD212FE1FEFE348000B0D87 /* LoadContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadContentViewController.swift; sourceTree = "<group>"; };
 		CCD213031FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewPreferencesManager.swift; sourceTree = "<group>"; };
 		CCD213051FF2AFDD000B0D87 /* JavaScriptBridgeMessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaScriptBridgeMessageHandler.swift; sourceTree = "<group>"; };
@@ -77,6 +85,10 @@
 		CCDF50081FEA9A63005170F5 = {
 			isa = PBXGroup;
 			children = (
+				CCBD9EBB20024FD300FD1353 /* AUTHORS */,
+				CCBD9EBC20024FD300FD1353 /* COPYING */,
+				CCBD9EBD20024FD400FD1353 /* INSTALL.md */,
+				CCBD9EBE20024FD400FD1353 /* README.md */,
 				CCDF50131FEA9A63005170F5 /* WheresMyBrowser */,
 				CCDF502A1FEA9A63005170F5 /* WheresMyBrowserTests */,
 				CCDF50121FEA9A63005170F5 /* Products */,
@@ -206,9 +218,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCBD9EC020024FD400FD1353 /* COPYING in Resources */,
 				CCDF50211FEA9A63005170F5 /* LaunchScreen.storyboard in Resources */,
 				CCDF503F1FEE6435005170F5 /* web in Resources */,
+				CCBD9EC120024FD400FD1353 /* INSTALL.md in Resources */,
+				CCBD9EBF20024FD400FD1353 /* AUTHORS in Resources */,
 				CCDF501E1FEA9A63005170F5 /* Assets.xcassets in Resources */,
+				CCBD9EC220024FD400FD1353 /* README.md in Resources */,
 				CCDF501C1FEA9A63005170F5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
