@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CC0FABEB1FF407BE00A3D705 /* UIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0FABEA1FF407BD00A3D705 /* UIWebViewController.swift */; };
 		CCAC81E21FF3916D0056FAFB /* WKPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAC81E11FF3916D0056FAFB /* WKPreferencesViewController.swift */; };
+		CCBD9EBA200230D400FD1353 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBD9EB9200230D400FD1353 /* MainTabBarViewController.swift */; };
 		CCD212FF1FEFE348000B0D87 /* LoadContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD212FE1FEFE348000B0D87 /* LoadContentViewController.swift */; };
 		CCD213041FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD213031FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift */; };
 		CCD213061FF2AFDD000B0D87 /* JavaScriptBridgeMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD213051FF2AFDD000B0D87 /* JavaScriptBridgeMessageHandler.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		CC0FABEA1FF407BD00A3D705 /* UIWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWebViewController.swift; sourceTree = "<group>"; };
 		CCAC81E11FF3916D0056FAFB /* WKPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKPreferencesViewController.swift; sourceTree = "<group>"; };
+		CCBD9EB9200230D400FD1353 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		CCD212FE1FEFE348000B0D87 /* LoadContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadContentViewController.swift; sourceTree = "<group>"; };
 		CCD213031FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewPreferencesManager.swift; sourceTree = "<group>"; };
 		CCD213051FF2AFDD000B0D87 /* JavaScriptBridgeMessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaScriptBridgeMessageHandler.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				CCDF50361FEAA91E005170F5 /* DocumentationViewController.swift */,
 				CCD212FE1FEFE348000B0D87 /* LoadContentViewController.swift */,
 				CCE2286E1FF96CD20052C2CE /* AboutViewController.swift */,
+				CCBD9EB9200230D400FD1353 /* MainTabBarViewController.swift */,
 			);
 			path = WheresMyBrowser;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				CCD213061FF2AFDD000B0D87 /* JavaScriptBridgeMessageHandler.swift in Sources */,
 				CCE2286F1FF96CD20052C2CE /* AboutViewController.swift in Sources */,
 				CCDF50371FEAA91E005170F5 /* DocumentationViewController.swift in Sources */,
+				CCBD9EBA200230D400FD1353 /* MainTabBarViewController.swift in Sources */,
 				CCAC81E21FF3916D0056FAFB /* WKPreferencesViewController.swift in Sources */,
 				CCD213041FF2AB4A000B0D87 /* WKWebViewPreferencesManager.swift in Sources */,
 				CCD212FF1FEFE348000B0D87 /* LoadContentViewController.swift in Sources */,
@@ -385,6 +389,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WheresMyBrowser/Info.plist;
@@ -401,6 +406,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WheresMyBrowser/Info.plist;
