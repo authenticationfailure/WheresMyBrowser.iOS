@@ -13,7 +13,7 @@ class AboutViewController: UIViewController {
     @IBOutlet weak var versionLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        versionLabel.text = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        versionLabel.text = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         
     }
 }
