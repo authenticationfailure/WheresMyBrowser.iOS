@@ -20,10 +20,10 @@
         </ol>
         <hr />
         <h3>Page Content</h3>
-        <p>Apple stock price is:</p>
+        <p>Apple's stock price day high is:</p>
         <p id="output_stock" style="background-color: #E0E0E0"></p>
         
-        <p><a id="external_link" href="#">Click here for more info.</a></p>
+        <p><a id="external_link" href="https://uk.finance.yahoo.com/quote/AAPL?p=AAPL">Click here for more info.</a></p>
         
         <script>
             function updateLink(href) {
@@ -33,7 +33,7 @@
                 if (href.search("http://")==0 || href.search("https://")==0) {
                     safe_href = href;
                 } else {
-                    safe_href = "#";
+                    safe_href = "https://uk.finance.yahoo.com/quote/AAPL?p=AAPL";
                 }
                 externalLink.setAttribute("href", safe_href);
             }
@@ -48,10 +48,9 @@
             xhttp_no_cors.onreadystatechange = function () {
                 if (this.readyState == 4) {
                     if (this.status == 200) {
-                        jsonObject=JSON.parse(this.responseText.replace(/\/\/\ \[/,"["));
-                        console.log(jsonObject[0].f_reuters_url);
-                        document.getElementById("output_stock").innerHTML=jsonObject[0].l+" USD";
-                        updateLink(jsonObject[0].f_reuters_url);
+                        jsonObject=JSON.parse(this.responseText);
+                        dayHigh=jsonObject.quoteSummary.result[0].summaryDetail.dayHigh.fmt;
+                        document.getElementById("output_stock").innerHTML=dayHigh + " USD";
                     } else {
                          document.getElementById("output_stock").innerHTML=
                          "<div style='color:red'>Error: is 'Universal access from file URL' enabled?</div>";
@@ -60,7 +59,7 @@
             }
                          
             // The finance API does not set a CORS policy
-            xhttp_no_cors.open("GET", "http://finance.google.com/finance?q=NASDAQ:AAPL&output=json", true);
+            xhttp_no_cors.open("GET", "https://query1.finance.yahoo.com/v10/finance/quoteSummary/AAPL?formatted=true&modules=summaryDetail", true);
             xhttp_no_cors.send();
         </script>
         

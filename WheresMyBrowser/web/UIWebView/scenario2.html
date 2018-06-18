@@ -26,7 +26,7 @@
         <p>The last comment is:</p>
         <p id="output_comment" style="background-color: #E0E0E0"></p>
         
-        <p>Apple stock price is:</p>
+        <p>Apple's stock price day high is:</p>
         <p id="output_stock" style="background-color: #E0E0E0"></p>
         
         <script>
@@ -54,17 +54,17 @@
             xhttp_no_cors.onreadystatechange = function () {
                 if (this.readyState == 4) {
                     if (this.status == 200) {
-                        jsonObject=JSON.parse(this.responseText.replace(/\/\/\ \[/,"["));
-                        console.log(jsonObject[0].f_reuters_url);
-                        document.getElementById("output_stock").innerHTML=jsonObject[0].l+" USD";
+                        jsonObject=JSON.parse(this.responseText);
+                        dayHigh=jsonObject.quoteSummary.result[0].summaryDetail.dayHigh.fmt;
+                        document.getElementById("output_stock").innerHTML=dayHigh + " USD";
                     } else {
                         document.getElementById("output_stock").innerHTML= "<div style='color:red'>Error: could not load remote data</div>";
                     }
                 }
             }
-          
+
             // The finance API does not set a CORS policy
-            xhttp_no_cors.open("GET", "http://finance.google.com/finance?q=NASDAQ:AAPL&output=json", true);
+            xhttp_no_cors.open("GET", "https://query1.finance.yahoo.com/v10/finance/quoteSummary/AAPL?formatted=true&modules=summaryDetail", true);
             xhttp_no_cors.send();
         </script>
         
