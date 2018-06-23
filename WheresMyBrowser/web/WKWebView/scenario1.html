@@ -33,7 +33,7 @@
         <p>The last comment is:</p>
         <p id="output_comment" style="background-color: #E0E0E0"></p>
         
-        <p>Apple's stock price day high is:</p>
+        <p>Apple's stock price at some point in the past was:</p>
         <p id="output_stock" style="background-color: #E0E0E0"></p>
         
         <script>
@@ -62,8 +62,10 @@
                 if (this.readyState == 4) {
                     if (this.status == 200) {
                         jsonObject=JSON.parse(this.responseText);
-                        dayHigh=jsonObject.quoteSummary.result[0].summaryDetail.dayHigh.fmt;
-                        document.getElementById("output_stock").innerHTML=dayHigh + " USD";
+                        jsonObject=JSON.parse(this.responseText);
+                        historicStockValue=jsonObject.stocks.filter(
+                            function f(item) { return item.ticker_symbol==="AAPL" })[0];
+                        document.getElementById("output_stock").innerHTML=historicStockValue.stock_price+" USD";
                     } else {
                         document.getElementById("output_stock").innerHTML= "<div style='color:red'>Error: could not load remote data. This is the expected behaviour for WKWebViews.</div>";
                     }
@@ -72,7 +74,7 @@
                          
             // The finance API does not set a CORS policy
             // This fails to load in a WKWebView
-            xhttp_no_cors.open("GET", "https://query1.finance.yahoo.com/v10/finance/quoteSummary/AAPL?formatted=true&modules=summaryDetail", true);
+            xhttp_no_cors.open("GET", "http://wmbapi.authenticationfailure.com/nocors/v1/finance.json", true);
             xhttp_no_cors.send();
         </script>
         

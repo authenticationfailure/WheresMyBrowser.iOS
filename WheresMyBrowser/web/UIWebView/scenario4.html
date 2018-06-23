@@ -20,10 +20,10 @@
         </ol>
         <hr />
         <h3>Page Content</h3>
-        <p>Apple's stock price day high is:</p>
+        <p>Apple's stock price at some point in the past was:</p>
         <p id="output_stock" style="background-color: #E0E0E0"></p>
         
-        <p><a id="external_link" href="https://uk.finance.yahoo.com/quote/AAPL?p=AAPL">Click here for more info.</a></p>
+        <p><a id="external_link" href="#">Click here for more info.</a></p>
         
         <script>
             function updateLink(href) {
@@ -33,7 +33,7 @@
                 if (href.search("http://")==0 || href.search("https://")==0) {
                     safe_href = href;
                 } else {
-                    safe_href = "https://uk.finance.yahoo.com/quote/AAPL?p=AAPL";
+                    safe_href = "#";
                 }
                 externalLink.setAttribute("href", safe_href);
             }
@@ -49,8 +49,10 @@
                 if (this.readyState == 4) {
                     if (this.status == 200) {
                         jsonObject=JSON.parse(this.responseText);
-                        dayHigh=jsonObject.quoteSummary.result[0].summaryDetail.dayHigh.fmt;
-                        document.getElementById("output_stock").textContent=dayHigh + " USD";
+                        historicStockValue=jsonObject.stocks.filter(
+                            function f(item) { return item.ticker_symbol==="AAPL" })[0];
+                        document.getElementById("output_stock").textContent=historicStockValue.stock_price+" USD";
+                        updateLink(historicStockValue.live_url);
                     } else {
                          document.getElementById("output_stock").innerHTML=
                          "<div style='color:red'>Error: is 'Universal access from file URL' enabled?</div>";
@@ -59,7 +61,7 @@
             }
                          
             // The finance API does not set a CORS policy
-            xhttp_no_cors.open("GET", "https://query1.finance.yahoo.com/v10/finance/quoteSummary/AAPL?formatted=true&modules=summaryDetail", true);
+            xhttp_no_cors.open("GET", "http://wmbapi.authenticationfailure.com/nocors/v1/finance.json", true);
             xhttp_no_cors.send();
         </script>
         
