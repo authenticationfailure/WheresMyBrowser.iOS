@@ -44,8 +44,8 @@ class MainTabBarViewController: UITabBarController {
                         let jsonDecoder = JSONDecoder()
                         let updateData = try jsonDecoder.decode(UpdateData.self, from: data!)
                         let current_version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
-                        
-                        if updateData.latest_version != current_version  {
+                        let ver_cmp = updateData.latest_version.compare(current_version, options: .numeric)
+                        if ver_cmp == .orderedDescending  {
                             let message = "A newer version of the application is available. Download it from \(updateData.download_url)"
                             let title = "Update Available"
                             let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
